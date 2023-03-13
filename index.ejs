@@ -9,23 +9,6 @@
   <body>
     <h1>Denoアプリ自動コンテスト</h1>
 
-    <h2>投稿する</h2>
-    <form method="post" action="/post">
-      アプリ名<input name="title" value="やば道チェッカー"/>
-      説明<textarea name="description">目的
-地域（国高地区）の人に対して危ない場所はどこか分かるように視覚化するアプリ
-
-機能
-・危険度ランキング
-・検索した経路の危険な場所
-・危険な場所をとタップすると、人目線、車目線を体感できる
-・危ないと体験した場所に投稿可能
-・危険な場所の改善案の提案
-・いいね機能</textarea>
-      作者<input name="author" value="ninja03"/>
-      <input type="submit" value="投稿"/>
-    </form>
-
     <h2>作品一覧</h2>
     <table>
       <thead>
@@ -47,6 +30,23 @@
         <% } %>
       </tbody>
     </table>
+
+    <h2>投稿する</h2>
+    <form method="post" action="/post">
+      アプリ名<input name="title" value="やば道チェッカー"/>
+      説明<textarea rows="15" name="description">目的
+地域（国高地区）の人に対して危ない場所はどこか分かるように視覚化するアプリ
+
+機能
+・危険度ランキング
+・検索した経路の危険な場所
+・危険な場所をとタップすると、人目線、車目線を体感できる
+・危ないと体験した場所に投稿可能
+・危険な場所の改善案の提案
+・いいね機能</textarea>
+      作者<input name="author" value="ninja03"/>
+      <input type="submit" value="投稿"/>
+    </form>
 
   </body>
 </html>
