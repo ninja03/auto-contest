@@ -43,7 +43,6 @@ async function index({ pool }) {
       a.comment = a.comment.trim().replaceAll("。", "。\n");
       return a;
     });
-    console.log(apps);
     return await renderPage("index.ejs", { apps });
   } finally {
     conn.release();
