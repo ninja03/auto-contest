@@ -90,7 +90,7 @@ const main = async () => {
     if (handler) {
       return await handler({ req, pool });
     }
-    return new Response(null, { status: 404 });
+    return serveDir(req, { fsRoot: "./static/" });
   });
 };
 
