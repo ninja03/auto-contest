@@ -39,10 +39,19 @@ async function index({ pool }) {
     const result = await conn.queryObject`
       SELECT * FROM contest ORDER BY id DESC
     `;
-    return await renderPage("index.ejs", { apps: result.rows });
+    const apps = result.rows.map((a) => {
+      a.comment = a.comment.trim().replaceAll("。", "。\n");
+      return a;
+    });
+    console.log(apps);
+    return await renderPage("index.ejs", { apps });
   } finally {
     conn.release();
   }
+}
+
+async function postPage() {
+  return await renderPage("post.ejs");
 }
 
 async function post({ req, pool }) {
@@ -81,6 +90,7 @@ async function main() {
 
   const router = new Map();
   router.set("GET /", index);
+  router.set("GET /post", postPage);
   router.set("POST /post", post);
 
   serve(async (req) => {
