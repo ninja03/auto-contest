@@ -1,40 +1,30 @@
-<!doctype html>
-<html lang='ja'>
-  <head>
-    <meta charSet="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Denoアプリ自動コンテスト</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
-  </head>
-  <body>
-    <h1>Denoアプリ自動コンテスト</h1>
+<%- await include("header.ejs") %>
+<h2>作品一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>説明</th>
+      <th>作者</th>
+      <th>ChatGPTくんのコメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const app of apps) { %>
+      <tr>
+        <td><%= app.title %></td>
+        <td><%= app.description %></td>
+        <td><%= app.author %></td>
+        <td><%= app.comment %></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
 
-    <h2>作品一覧</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>タイトル</th>
-          <th>説明</th>
-          <th>作者</th>
-          <th>ChatGPTくんのコメント</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for (const app of apps) { %>
-          <tr>
-            <td><%= app.title %></td>
-            <td><%= app.description %></td>
-            <td><%= app.author %></td>
-            <td><%= app.comment %></td>
-          </tr>
-        <% } %>
-      </tbody>
-    </table>
-
-    <h2>投稿する</h2>
-    <form method="post" action="/post">
-      アプリ名<input name="title" value="やば道チェッカー"/>
-      説明<textarea rows="15" name="description">目的
+<h2>投稿する</h2>
+<form method="post" action="/post">
+  アプリ名<input name="title" value="やば道チェッカー"/>
+  説明<textarea rows="15" name="description">目的
 地域（国高地区）の人に対して危ない場所はどこか分かるように視覚化するアプリ
 
 機能
@@ -44,9 +34,7 @@
 ・危ないと体験した場所に投稿可能
 ・危険な場所の改善案の提案
 ・いいね機能</textarea>
-      作者<input name="author" value="ninja03"/>
-      <input type="submit" value="投稿"/>
-    </form>
-
-  </body>
-</html>
+  作者<input name="author" value="ninja03"/>
+  <input type="submit" value="投稿"/>
+</form>
+<%- await include("footer.ejs") %>
