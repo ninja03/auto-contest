@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 
-export default function Home({ Component }) {
+export default function({ Component }) {
   return (
     <>
       <Head>
