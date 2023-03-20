@@ -1,6 +1,4 @@
-import { App } from "../utils/types.ts";
-
-export function AppDiv({ app }: { app: App }) {
+export function App({ app }) {
   return (
     <div class="mt-4 border border-black rounded shadow-md bg-white max-w-3xl mx-auto">
       <div class="text-xl bg-blue-100 p-2">

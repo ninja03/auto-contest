@@ -1,7 +1,7 @@
-async function talk(prompt: string): Promise<string> {
+export async function talk(prompt) {
   const openaiKey = Deno.env.get("OPENAI_API_KEY");
   const url = "https://api.openai.com/v1/chat/completions";
-  const opt: RequestInit = {
+  const opt = {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
@@ -19,5 +19,3 @@ async function talk(prompt: string): Promise<string> {
   const res = await (await fetch(url, opt)).json();
   return res.choices[0].message.content;
 }
-
-export { talk };

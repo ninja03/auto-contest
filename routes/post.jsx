@@ -1,9 +1,8 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import { pool } from "../utils/db.ts";
-import { talk } from "../utils/chatgpt.ts";
+import { pool } from "../db.js";
+import { talk } from "../chatgpt.js";
 
-export const handler: Handlers = {
-  async POST(req, _ctx) {
+export const handler = {
+  async POST(req, ctx) {
     const form = await req.formData();
     const title = form.get("title");
     const description = form.get("description");
@@ -33,7 +32,7 @@ export const handler: Handlers = {
   }
 }
 
-export default function(ctx: PageProps) {
+export default function() {
   return (
     <>
       <form method="post" action="/post" class="shadow-md text-center bg-white max-w-3xl mx-auto">

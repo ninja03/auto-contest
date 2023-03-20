@@ -1,7 +1,6 @@
-import { AppProps } from "$fresh/server.ts"
 import { Head } from "$fresh/runtime.ts";
 
-export default function Home({ Component }: AppProps) {
+export default function Home({ Component }) {
   return (
     <>
       <Head>
